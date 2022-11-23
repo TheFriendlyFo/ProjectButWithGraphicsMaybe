@@ -23,14 +23,10 @@ public class HappyFace extends Application
         ArrayList<Dot> dots = new ArrayList<>();
         Point origin = new Point(500,500);
 
-        for (int i = 100; i <= 900; i += 200) {
-            for (int j = 100; j <= 900; j += 200) {
+        for (int i = 100; i <= 900; i += 10) {
+            for (int j = 100; j <= 900; j += 10) {
             dots.add(new Dot(i, j, origin));
             }
-        }
-
-        for (int i=0; i<25; i++) {
-            dots.add(new Dot(500,500,dots.get(i).location));
         }
 
         Group root = new Group();
@@ -41,13 +37,15 @@ public class HappyFace extends Application
         primaryStage.setScene(scene);
 
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 1000; i++) {
             for (Dot dot : dots) {
-                gc.fillOval(dot.getX(), dot.getY(), 3, 3);
-                dot.rotate(1);
-                dot.extend(-2);
+                gc.fillOval(dot.getX(), dot.getY(), 0.25, 0.25);
+                dot.rotate(i % 30);
+                dot.extend(i % 10 - 7);
             }
             primaryStage.show();
+
+
         }
     }
 }

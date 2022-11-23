@@ -22,7 +22,8 @@ public class Dot {
     }
 
     public void update() {
-        location.set(Math.cos(angle) * dist + center.x,
+        location.set(
+                Math.cos(angle) * dist + center.x,
                 Math.sin(angle) * dist + center.y);
     }
 
